@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Evento click</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="Imagenes/icono.png" type="image/x-icon">
+</head>
+<body>
+    <h1>
+        <span class="amarillo">JavaScript</span> - Eventos Teclas.
+    </h1>
+    <p>
+        El evento de teclas baja o <code>keydown</code> se dispara cuando se presiona una tecla del teclado. A diferencia del evento <code>keypress</code>, que se limita a las teclas que generan caracteres visibles, el evento <code>keydown</code> se dispara para todas las teclas, incluyendo las teclas de control como <code class="gris">Shift</code>, <code class="gris">Ctrl</code>, <code class="gris">Esc</code>, <code class="gris">Tab</code> y entre otras.
+    </p>
+    <b>Escucha de eventos.</b>
+    <p>
+        Para capturar y responder a un evento, debes escuchar dicho evento en un elemento específico del <b>DOM</b> (<i>Document Object Model</i>). Esto se hace mediante la función: <code class="gris"><span class="violeta">addEventListener</span></code>.   
+    </p>
+    <h3><span class="violeta">addEventListener</span><span class="dorado">()</span></h3> <br>
+    <p>
+        La función <code class="gris"><span class="violeta">addEventListener</span></code> es una herramienta esencial en <span class="amarillo">JavaScript</span> para manejar eventos y crear interactividad en tus documentos. Permite vincular funciones conocidas como <i>manejadores de eventos</i>, a elementos <span class="naranja">HTML</span> específicos para responder a diferentes tipos de acciones realizadas por el usuario.
+    </p>
+    <h3>Uso <code>keydown</code></h3>
+    <br>
+    <p>
+        En este ejemplo, evento <code>keydown</code> se escucha en el elemento body y mostrará en la consola del navegador la tecla presionada.
+    </p>
+<pre><code class="cpp"><span class="rojo">const</span> <span class="celeste">body</span> = <span class="celeste">document</span>.<span class="violeta">querySelector</span><span class="dorado">(</span><span class="celeste">'body'</span><span class="dorado">)</span>;
+<span class="celeste">body</span>.<span class="violeta">addEventListener</span><span class="dorado">(</span><span class="celeste">'keydown'</span>,<span class="violeta">(</span><span class="naranja">event</span><span class="violeta">)</span><span class="rojo">=></span><span class="violeta">{</span>
+<span class="celeste">console</span>.<span class="violeta">log</span><span class="azul">(</span><span class="celeste">`La tecla presionada es:</span><span class="dorado">${</span><span class="naranja">event</span>.<span class="celeste">key</span><span class="dorado">}</span><span class="celeste">`</span><span class="azul">)</span>;
+<span class="violeta">}</span><span class="dorado">)</span></code></pre>
+    <p>
+        En:
+    </p>
+<pre><code class="cpp"><span class="rojo">const</span> <span class="celeste">body</span> = <span class="celeste">document</span>.<span class="violeta">querySelector</span><span class="dorado">(</span><span class="celeste">'body'</span><span class="dorado">)</span>;</code></pre>
+    <p>
+        Estamos seleccionando el elemento <span class="verde">body</span> del documento <span class="naranja">HTML</span> y guardándolo en la variable <span class="celeste">body</span>.
+    </p>
+    <p>
+        En:
+    </p>
+<pre><code class="cpp"><span class="celeste">body</span>.<span class="violeta">addEventListener</span><span class="dorado">(</span><span class="celeste">'keydown'</span>,<span class="violeta">(</span><span class="naranja">event</span><span class="violeta">)</span><span class="rojo">=></span><span class="violeta">{}</span><span class="dorado">);</span></code></pre>
+    <p>
+        Estamos agregando un <code class="gris">manejador de eventos</code> al elemento <span class="verde">body</span> que espera el evento <code>keydown</code>. Cuando se produce el evento <code>keydown</code> una tecla del teclado es presionada, se ejecuta el código dentro de la función del evento.
+    </p>
+    <p>
+        Dentro de la función, utilizamos <span class="celeste">console</span><span class="violeta">log</span>() para imprimir en la consola del navegador un mensaje que indica qué tecla se ha presionado. La propiedad <span class="celeste">key</span> del objeto <span class="naranja">event</span> contiene el valor de la tecla presionada.
+    </p>
+<pre><code class="cpp"><span class="celeste">console</span>.<span class="violeta">log</span><span class="azul">(</span><span class="celeste">`La tecla presionada es:</span><span class="dorado">${</span><span class="naranja">event</span>.<span class="celeste">key</span><span class="dorado">}</span><span class="celeste">`</span><span class="azul">)</span>;</code></pre>
+    <br>
+    <hr>
+    <br>
+    <h3>Propiedades del evento <code>keydown</code></h3>
+    <p>
+        Cuando se dispara el evento <code>keydown</code>, se genera un objeto que contiene varias propiedades útiles:
+    </p>
+    <ul>
+        <li>
+            <p>
+                <code>key</code> - El valor de la tecla que se presionó (ej. a, Enter).
+            </p>
+        </li>
+        <li>
+            <p>
+                <code>code</code> - El código físico de la tecla (ej. KeyA, ArrowDown).
+            </p>
+        </li>
+        <li>
+            <p>
+                <code>altkey</code> - Booleano que indica si la tecla Alt estaba presionada.
+            </p>
+        </li>
+        <li>
+            <p>
+                <code>ctrlKey</code> - Booleano que indica si la tecla Control estaba presionada.
+            </p>
+        </li>
+        <li>
+            <p>
+                <code>shiftKey</code> - Booleano que indica si la tecla Shift esta presionada.
+            </p>
+        </li>
+    </ul>
+    <h3>Listado de eventos teclas</h3>
+    <ul>
+        <li>
+            <p>
+                <code>keydown</code> - Se dispara cuando se presiona una tecla. Este evento se activa inmediatamente cuando se presiona la tecla, antes de que se procese cualquir otro comportamiento.
+            </p>
+        </li>
+        <li>
+            <p>
+                <code>keypress</code> - Este evento se dispara cuando se presiona una tecla que podía generar un carácter es decir, una tecla alfanumérica. Sin embargo, este evento está obsoleto en favor de <code>keydown</code> y <code>keyup</code>.
+            </p>
+        </li>
+        <li>
+            <p>
+                <code>keyup</code> - Se dispara cuando se suelta una tecla que había sido presionada previamente. Este evento se activa una vez que la tecla se libera.
+            </p>
+        </li>
+    </ul>
+    <fieldset>
+        <legend>Ejercicios</legend>
+        <p>
+            En todos los ejercicios, todos los elementos deben ser creados y manipulados exclusivamente desde el archivo <span class="amarillo">JavaScript</span>. El archivo <span class="naranja">HTML</span> solo debe contener la estructura mínima básica y la vinculación con el archivo <span class="amarillo">JavaScript</span> correspondiente.
+        </p>
+        <ol>
+            <li>
+                <p>
+                    Realice un documento que escuche las teclas presionadas por el usuario. La función encargada de manejar este evento debe recibir un parámetro llamado <code>event</code>, visualice el parámetro por consola con la propiedad <span class="celeste">key</span>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Crea un documento que muestre en un <span class="verde">div</span> la tecla que el usuario ha presionado en su teclado.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Teniendo como base el ejercicio anterior, modifica el código para que, en lugar de mostrar solo una tecla presionada, muestre todas las teclas presionadas en secuencia. Es decir, debe ir escribiendo y mostrando en pantalla todo el texto que el usuario vaya ingresando.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Implementa un documento donde un <span class="verde">div</span> pueda ser desplazado de izquierda a derecha y de arriba hacia abajo, usando las las flechas del teclado.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Desarrolla un documento que cuente y muestre el número de veces que el usuari ha presionado una tecla específica, la tecla <code>a</code>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Realice un programa que detecte cuando el usuario presione la tecla <b>b</b> y, en función de ello, alterne el estado de la página entre modo claro y modo oscuro. El fondo, el título y los parrafos deben cambiar de color según el estado activo.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Crea un documento que detecte y responda a combinaciones específicas de teclas como: <code>Ctrl + s</code> y al presionar la combinación mostrara el siguiente mensaje <code class="gris">Documento Guardado</code> en el cuerpo del documento .
+                </p>
+            </li>
+            <li>
+                <p>
+                    Desarrolla un documento que al presionar una tecla numérica del 1 al 5 cambie el color de fondo del documento a un color predefinido diferente para cada número.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Crea un documento que reproduzca un sonido específico cuando se presione cualquier tecla.
+                </p>
+            </li>
+        </ol>
+    </fieldset>
+    <br>
+    <hr>
+    <br>
+    
+</body>
+</html>
